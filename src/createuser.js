@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
+import axios from "axios";
 function Createuser(propos) {
   let navigate = useNavigate();
   const formik = useFormik({
@@ -30,13 +31,10 @@ function Createuser(propos) {
     onSubmit: async (values) => {
       try {
         console.log(values);
-        await fetch("https://61f0e50b072f86001749eedf.mockapi.io/spapage", {
-          method: "POST",
-          body: JSON.stringify(values),
-          headers: {
-            "Content-type": "application/json",
-          },
-        });
+        await axios.post(
+          "https://61f0e50b072f86001749eedf.mockapi.io/spapage",
+          values
+        );
         alert("data stored");
         navigate(`/Userlist`);
       } catch (error) {

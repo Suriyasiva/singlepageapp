@@ -1,9 +1,26 @@
 /*global event*/
 /*eslint no-restricted-globals: ["error", "event"]*/
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Userlist(propos) {
+  const [userlist, setuserlist] = useState([]);
+  console.log(userlist);
+  useEffect(() => {
+    getdata();
+  }, []);
+  const getdata = async () => {
+    try {
+      const lists = await axios.get(
+        "https://61f0e50b072f86001749eedf.mockapi.io/spapage"
+      );
+      // list.data=whole datat
+      setuserlist(lists.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   const Delete = (id) => {
     const res = confirm("are you sure ,wnat to delete!");
     if (res) {
@@ -44,45 +61,42 @@ function Userlist(propos) {
                   <th>action</th>
                 </tr>
               </thead>
-              {/* <tfoot>
-                <tr>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>country</th>
-                  <th>position</th>
-                  <th>Salary</th>
-                  <th>action</th>
-                </tr>
-              </tfoot> */}
-              <tbody>
-                <tr>
-                  <td>suriya</td>
-                  <td>ssuriya3098@gmail.com</td>
-                  <td>india</td>
-                  <td>student</td>
-                  <td>0</td>
-                  <td>
-                    <Link
-                      to="/userview/1"
-                      className="btn btn-primary btn-sm m-1"
-                    >
-                      View
-                    </Link>
 
-                    <Link
-                      to="/UserEdit/1"
-                      className="btn btn-warning btn-sm  m-1"
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      onClick={() => Delete(1)}
-                      className="btn btn-danger btn-sm m-1"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+              <tbody>
+                {userlist.map((user) => {
+                  console.log(user);
+
+                  return (
+                    <tr>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
+                      <td>{user.country}</td>
+                      <td>{user.position}</td>
+                      <td>{user.salary}</td>
+                      <td>
+                        <Link
+                          to={`/userview/${user.id}`}
+                          className="btn btn-primary btn-sm m-1"
+                        >
+                          View
+                        </Link>
+
+                        <Link
+                          to={`/UserEdit/${user.id}`}
+                          className="btn btn-warning btn-sm  m-1"
+                        >
+                          Edit
+                        </Link>
+                        <button
+                          onClick={() => Delete(1)}
+                          className="btn btn-danger btn-sm m-1"
+                        >
+                          Delete
+                        </button>
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>

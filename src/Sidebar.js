@@ -41,7 +41,7 @@ function Sidebar(propos) {
 
       <div class="sidebar-heading">Interface</div>
 
-      {/* <li class="nav-item">
+      <li class="nav-item">
         <a
           class="nav-link collapsed"
           href="#"
@@ -69,9 +69,9 @@ function Sidebar(propos) {
             </a>
           </div>
         </div>
-      </li> */}
+      </li>
 
-      {/* <li class="nav-item">
+      <li class="nav-item">
         <a
           class="nav-link collapsed"
           href="#"
@@ -105,13 +105,13 @@ function Sidebar(propos) {
             </a>
           </div>
         </div>
-      </li> */}
+      </li>
 
       <hr class="sidebar-divider" />
 
       <div class="sidebar-heading">Addons</div>
 
-      {/* <li class="nav-item">
+      <li class="nav-item">
         <a
           class="nav-link collapsed"
           href="#"
@@ -150,29 +150,29 @@ function Sidebar(propos) {
             </a>
           </div>
         </div>
-      </li> */}
+      </li>
 
-      {/* <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-chart-area"></i>
           <span>Charts</span>
         </a>
-      </li> */}
+      </li>
 
-      {/* <li class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" href="tables.html">
           <i class="fas fa-fw fa-table"></i>
           <span>Tables</span>
         </a>
-      </li> */}
+      </li>
 
       <hr class="sidebar-divider d-none d-md-block" />
 
-      {/* <div class="text-center d-none d-md-inline">
+      <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div> */}
+      </div>
 
-      {/* <div class="sidebar-card d-none d-lg-flex">
+      <div class="sidebar-card d-none d-lg-flex">
         <img
           class="sidebar-card-illustration mb-2"
           src="img/undraw_rocket.svg"
@@ -188,7 +188,7 @@ function Sidebar(propos) {
         >
           Upgrade to Pro!
         </a>
-      </div> */}
+      </div>
     </ul>
   );
 }
